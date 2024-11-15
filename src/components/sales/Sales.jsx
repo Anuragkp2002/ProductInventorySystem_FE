@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import './Purchase.css';
+import './Sales.css';
 
-const Purchase = () => {
+const Sales = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     productName: '',
-    quantity: '',  // Change from variant and subvariant to quantity
-    purchaseDate: '',  // Add purchase date
-    totalAmount: '',  // Add totalAmount for the 'Total Amount' column
+    customerName: '',  // Changed from quantity to customer name for sales
+    salesDate: '',      // Changed from purchaseDate to salesDate
+    totalSaleAmount: '', // Changed from totalAmount to totalSaleAmount
   });
-  const [purchases, setPurchases] = useState([]); // Rename to purchases for better clarity
+  const [sales, setSales] = useState([]); // Renamed to sales for clarity
 
+  // Handle input change
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -19,62 +20,64 @@ const Purchase = () => {
     });
   };
 
-  const handleAddPurchase = () => {
-    setPurchases([...purchases, formData]);
+  // Handle adding new sale
+  const handleAddSale = () => {
+    setSales([...sales, formData]);
     setIsModalOpen(false);
     setFormData({
       productName: '',
-      quantity: '',
-      purchaseDate: '',
-      totalAmount: '',
+      customerName: '',
+      salesDate: '',
+      totalSaleAmount: '',
     });
   };
 
   return (
     <div className="container">
-      <div className="purchase-container">
-        <h3>Purchase</h3>
+      <div className="sales-container">
+        <h3>Sales</h3>
         <button
           type="button"
-          className="purchase-add-button"
+          className="sales-add-button"
           onClick={() => setIsModalOpen(true)}
         >
-          +Add Purchase
+          +Add Sale
         </button>
 
-        <table className="purchase-table">
+        <table className="sales-table">
           <thead>
             <tr>
               <th>Product Name</th>
-              <th>Quantity</th>
-              <th>Purchase Date</th>
-              <th>Total Amount</th>
+              <th>Customer</th>
+              <th>Sales Date</th>
+              <th>Total Sale Amount</th>
             </tr>
           </thead>
           <tbody>
-            {purchases.length === 0 ? (
+            {sales.length === 0 ? (
               <tr>
                 <td colSpan="4" style={{ textAlign: 'center' }}>
-                  No purchases added
+                  No sales added
                 </td>
               </tr>
             ) : (
-              purchases.map((purchase, index) => (
+              sales.map((sale, index) => (
                 <tr key={index}>
-                  <td>{purchase.productName}</td>
-                  <td>{purchase.quantity}</td>
-                  <td>{purchase.purchaseDate}</td>
-                  <td>${purchase.totalAmount}</td>
+                  <td>{sale.productName}</td>
+                  <td>{sale.customerName}</td>
+                  <td>{sale.salesDate}</td>
+                  <td>${sale.totalSaleAmount}</td>
                 </tr>
               ))
             )}
           </tbody>
         </table>
 
+        {/* Sales Modal */}
         {isModalOpen && (
           <div className="modal-overlay">
             <div className="modal">
-              <h4>Add New Purchase</h4>
+              <h4>Add New Sale</h4>
               <div className="form-group">
                 <label>Product Name</label>
                 <input
@@ -86,37 +89,37 @@ const Purchase = () => {
                 />
               </div>
               <div className="form-group">
-                <label>Quantity</label>
+                <label>Customer Name</label>
                 <input
-                  type="number"
-                  name="quantity"
-                  value={formData.quantity}
+                  type="text"
+                  name="customerName"
+                  value={formData.customerName}
                   onChange={handleInputChange}
                   required
                 />
               </div>
               <div className="form-group">
-                <label>Purchase Date</label>
+                <label>Sales Date</label>
                 <input
                   type="date"
-                  name="purchaseDate"
-                  value={formData.purchaseDate}
+                  name="salesDate"
+                  value={formData.salesDate}
                   onChange={handleInputChange}
                   required
                 />
               </div>
               <div className="form-group">
-                <label>Total Amount</label>
+                <label>Total Sale Amount</label>
                 <input
                   type="number"
-                  name="totalAmount"
-                  value={formData.totalAmount}
+                  name="totalSaleAmount"
+                  value={formData.totalSaleAmount}
                   onChange={handleInputChange}
                   required
                 />
               </div>
               <div style={{ float: 'right' }}>
-                <button onClick={handleAddPurchase} className="save-button">
+                <button onClick={handleAddSale} className="save-button">
                   Save
                 </button>
                 <button
@@ -134,4 +137,4 @@ const Purchase = () => {
   );
 };
 
-export default Purchase;
+export default Sales;

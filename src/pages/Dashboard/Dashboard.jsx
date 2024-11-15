@@ -11,14 +11,14 @@ const Dashboard = () => {
       <nav className="navbar">
         <div className="navbar-left">
           <img src={user} alt="User" className="user-image" />
-          <h2>My Dashboard</h2>
+          <h2>Inventory</h2>
         </div>
       </nav>
       
       <div className="button-group">
         <button type='submit' className="product-button" onClick={() => navigate('/productcreation')}>Product</button>
-        <button type='submit' className="purchase-button">Purchase</button>
-        <button type='submit' className="sale-button">Sales</button>
+        <button type='submit' className="purchase-button" onClick={() => navigate('/purchase')}>Purchase</button>
+        <button type='submit' className="sale-button" onClick={() => navigate('/sale')}>Sales</button>
       </div>
 
     </div>

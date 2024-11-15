@@ -23,6 +23,7 @@ body {
     border-radius: 13px;
     margin-left: 2%;
     display: flex;
+    margin-top: 15px;
 }
 .navbar-left {
     display: flex;
