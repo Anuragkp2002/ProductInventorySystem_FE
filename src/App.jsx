@@ -6,7 +6,9 @@ import './App.css'
 
 
 import Login from './pages/login/Login';
-import Register from './pages/login/Register/Register';
+import Register from './pages/Register/Register';
+import Dashboard from './pages/Dashboard/dashboard';
+import Product from './components/product/Product';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,8 +19,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Login/>} />
           <Route path="/register" element={<Register/>} />
+          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="/productcreation" element={<Product/>} />
+
         </Routes>
     </Router>
+    // 
   )
 }
 

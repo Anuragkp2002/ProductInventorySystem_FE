@@ -1,0 +1,89 @@
+/* Dashboard.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .dash-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f4f4f9;
+  }
+  
+  /* Navbar styling */
+  .navbar {
+    background-color: #dde1e6;
+    color: #302f2fd5;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 94%;
+    border-radius: 13px;
+    margin-left: 2%;
+    display: flex;
+}
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* Buttons section styling */
+
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 66%;
+    margin-top: 20px;
+    margin-left: 32%;
+}
+  
+  .product-button,
+  .purchase-button,
+  .sale-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1;
+    margin: 0 10px; /* Adds space between buttons */
+  }
+  
+  /* Button colors */
+  .product-button {
+    background-color: #ff006a;
+  }
+  
+  .product-button:hover {
+    background-color: #bd083e9a;
+  }
+  
+  .purchase-button {
+    background-color: #046ce2c2;
+  }
+  
+  .purchase-button:hover {
+    background-color: #0847bd8f;
+  }
+  
+  .sale-button {
+    background-color: #ffc107;
+  }
+  
+  .sale-button:hover {
+    background-color: #e0a800;
+  }
