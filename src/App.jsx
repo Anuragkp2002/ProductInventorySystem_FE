@@ -9,6 +9,8 @@ import Login from './pages/login/Login';
 import Register from './pages/Register/Register';
 import Dashboard from './pages/Dashboard/dashboard';
 import Product from './components/product/Product';
+import Purchase from './components/Purchase/Purchase';
+import Sales from './components/sales/Sales';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +23,12 @@ function App() {
           <Route path="/register" element={<Register/>} />
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/productcreation" element={<Product/>} />
+          <Route path="/purchase" element={<Purchase/>} />
+          <Route path="/sale" element={<Sales/>} />
+          
+
+          
+          
 
         </Routes>
     </Router>
