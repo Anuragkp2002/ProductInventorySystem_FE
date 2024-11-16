@@ -3,6 +3,9 @@ import './Register.css';
 import register from '../../assets/images/register.jpg'
 import { Link } from 'react-router-dom';
 
+
+
+
 const Register = () => {
   return (
     <div className='container' style={{display:'flex',gap:'180px'}}>

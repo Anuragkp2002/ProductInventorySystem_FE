@@ -4,6 +4,7 @@ import './Product.css';
 const Product = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [products, setProducts] = useState([]);
+  const [tags, setTags] = useState([]);
   const [formData, setFormData] = useState({
     productName: '',
     variant: '',
@@ -17,16 +18,29 @@ const Product = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    if (name === 'variant' && value) {
+      addTag(value);
+    } else if (name === 'subvariant' && value) {
+      addTag(value);
+    }
+  };
+
+  const addTag = (tag) => {
+    if (!tags.includes(tag)) {
+      setTags([...tags, tag]);
+    }
+  };
+
+  const removeTag = (tagToRemove) => {
+    setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
   const handleAddProduct = () => {
-    // Add the new product to the list
-    setProducts([...products, formData]);
+    setProducts([...products, { ...formData, tags }]);
 
-    // Close the modal
     setIsModalOpen(false);
 
-    // Reset the form fields
     setFormData({
       productName: '',
       variant: '',
@@ -36,6 +50,7 @@ const Product = () => {
       availability: 'In Stock',
       description: '',
     });
+    setTags([]);
   };
 
   return (
@@ -106,6 +121,7 @@ const Product = () => {
                   value={formData.variant}
                   onChange={handleInputChange}
                   required
+                  style={{ width: '99%' }}
                 >
                   <option value="">Select Variant</option>
                   <option value="Variant 1">Variant 1</option>
@@ -120,12 +136,31 @@ const Product = () => {
                   value={formData.subvariant}
                   onChange={handleInputChange}
                   required
+                  style={{ width: '99%' }}
                 >
                   <option value="">Select Subvariant</option>
                   <option value="Subvariant A">Subvariant A</option>
                   <option value="Subvariant B">Subvariant B</option>
                 </select>
               </div>
+
+              <div className="form-group">
+                <div className="tags-container">
+                  {tags.map((tag, index) => (
+                    <div className="tag" key={index}>
+                      {tag}
+                      <button
+                        type="button"
+                        className="remove-tag"
+                        onClick={() => removeTag(tag)}
+                      >
+                        ×
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
               <div className="form-group">
                 <label>Price</label>
                 <input
@@ -153,6 +188,7 @@ const Product = () => {
                   value={formData.availability}
                   onChange={handleInputChange}
                   required
+                  style={{ width: '99%' }}
                 >
                   <option value="In Stock">In Stock</option>
                   <option value="Out of Stock">Out of Stock</option>
@@ -166,16 +202,16 @@ const Product = () => {
                   onChange={handleInputChange}
                 />
               </div>
-              <div style={{float:'right'}}>
-              <button onClick={handleAddProduct} className="save-button">
-                Save
-              </button>
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="cancel-button"
-              >
-                Cancel
-              </button>
+              <div style={{ float: 'right' }}>
+                <button onClick={handleAddProduct} className="save-button">
+                  Save
+                </button>
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="cancel-button"
+                >
+                  Cancel
+                </button>
               </div>
             </div>
           </div>

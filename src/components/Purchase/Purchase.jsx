@@ -5,11 +5,11 @@ const Purchase = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     productName: '',
-    quantity: '',  // Change from variant and subvariant to quantity
-    purchaseDate: '',  // Add purchase date
-    totalAmount: '',  // Add totalAmount for the 'Total Amount' column
+    quantity: '',  
+    purchaseDate: '',  
+    totalAmount: '', 
   });
-  const [purchases, setPurchases] = useState([]); // Rename to purchases for better clarity
+  const [purchases, setPurchases] = useState([]); 
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
