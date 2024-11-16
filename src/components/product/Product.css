@@ -74,8 +74,7 @@
     margin-bottom: 5px;
   }
   
-  .form-group input,
-  .form-group textarea {
+  .form-group input,textarea {
     width: 95%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -83,7 +82,7 @@
   }
 
 
-  .form-group select{
+.select-form{
     width: 99%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -108,5 +107,32 @@
     border-radius: 5px;
     cursor: pointer;
     margin-left: 10px;
+  }
+  
+
+
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+  }
+  
+  .tag {
+    background-color: #e0e0e0;
+    color: #000000;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .remove-tag {
+    background: none;
+    border: none;
+    color: #a01919;
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 16px;
   }
   

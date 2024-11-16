@@ -5,7 +5,7 @@ body {
 .register-container {
   width: 100%;
   max-width: 376px;
-  margin: 40px auto; /* Added margin for centering */
+  margin: 40px auto; 
   padding: 30px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -70,7 +70,6 @@ body {
   color: black;
 }
 
-/* For links inside the paragraph */
 .register-container p a {
   color: #574caf;
   text-decoration: none;
